@@ -8,6 +8,7 @@ const welcome = {
 
 creds.get("/", (req, res) => res.json(welcome));
 creds.post("creds_profile", c.getCredsProfile);
+creds.get("creds_profile", (req, res) => res.json(welcome));
 creds.put("creds_profile", c.putCredsProfile);
 creds.put("creds_profile/picture", c.updatePicture);
 creds.delete("creds_profile/picture", c.deletePicture);
