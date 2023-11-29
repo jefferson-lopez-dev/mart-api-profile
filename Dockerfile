@@ -1,6 +1,6 @@
 FROM node:18-bullseye
 
-WORKDIR /api-mart-auth
+WORKDIR /api-mart-profile
 
 COPY . .
 
