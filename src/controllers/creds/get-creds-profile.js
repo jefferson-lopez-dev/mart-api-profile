@@ -17,7 +17,19 @@ export const getCredsProfile = async (req, res) => {
         email: "",
         createdBy: id,
       });
-      await data.save();
+      const profileSaved = await data.save();
+
+      return res.json({
+        creds_profile: {
+          picture: profileSaved.picture,
+          fullname: profileSaved.fullname,
+          country: profileSaved.country,
+          email: profileSaved.email,
+          createdAt: profileSaved.createdAt.toLocaleDateString(),
+        },
+        status: 204,
+        message: "The information has been successfully sent.",
+      });
     }
 
     return res.json({
