@@ -3,6 +3,7 @@ import CredsProfile from "../../schemas/creds-profile.js";
 export const getCredsProfile = async (req, res) => {
   try {
     const { id } = req.body;
+    return res.json({ id });
     const data = await CredsProfile.findOne({ createdBy: id });
 
     if (data === null) {
