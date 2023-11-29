@@ -21,6 +21,6 @@ app.use(cors(corsJson));
 app.use(express.json());
 app.use(cookieParser());
 app.use(fileupload(fileuploadJson));
-app.use("/api/", creds);
+app.use("/api", creds);
 
 export default app;
