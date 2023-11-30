@@ -25,6 +25,7 @@ export const getCredsProfile = async (req, res) => {
           fullname: profileSaved.fullname,
           country: profileSaved.country,
           email: profileSaved.email,
+          createdBy: profileSaved.createdBy,
           createdAt: profileSaved.createdAt.toLocaleDateString(),
         },
         status: 204,
