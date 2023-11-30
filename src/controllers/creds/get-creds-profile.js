@@ -29,7 +29,7 @@ export const getCredsProfile = async (req, res) => {
           createdAt: profileSaved.createdAt.toLocaleDateString(),
         },
         status: 204,
-        message: "The information has been successfully sent.",
+        message: "New information has been created, submitted successfully",
       });
     }
 
@@ -43,7 +43,7 @@ export const getCredsProfile = async (req, res) => {
         createdAt: data.createdAt.toLocaleDateString(),
       },
       status: 204,
-      message: "The information has been successfully sent.",
+      message: "Information found, and sent successfully",
     });
   } catch (error) {
     return res.json({
