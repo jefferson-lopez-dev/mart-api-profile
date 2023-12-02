@@ -31,20 +31,19 @@ export const getCredsProfile = async (req, res) => {
         status: 204,
         message: "New information has been created, submitted successfully",
       });
-    } else {
-      return res.json({
-        creds_profile: {
-          picture: data.picture,
-          fullname: data.fullname,
-          country: data.country,
-          email: data.email,
-          createdBy: data.createdBy,
-          createdAt: data.createdAt.toLocaleDateString(),
-        },
-        status: 204,
-        message: "Information found, and sent successfully",
-      });
     }
+    return res.json({
+      creds_profile: {
+        picture: data.picture,
+        fullname: data.fullname,
+        country: data.country,
+        email: data.email,
+        createdBy: data.createdBy,
+        createdAt: data.createdAt.toLocaleDateString(),
+      },
+      status: 204,
+      message: "Information found, and sent successfully",
+    });
   } catch (error) {
     return res.json({
       status: 500,
