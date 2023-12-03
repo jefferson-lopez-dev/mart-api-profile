@@ -4,8 +4,8 @@ import fs from "fs-extra";
 
 export const updatePicture = async (req, res) => {
   try {
-    const { id } = req.body;
-    const data = await CredsProfile.findOne({ id });
+    const { id } = req.params;
+    const data = await CredsProfile.findById(id);
 
     if (req.files === null) {
       return res.json({
@@ -21,7 +21,7 @@ export const updatePicture = async (req, res) => {
     };
 
     if (req.files) {
-      if (data.picture.status) {
+      if (data.picture.status === true) {
         await deleteImage(data.picture.public_id);
       }
 

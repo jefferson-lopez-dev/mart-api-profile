@@ -2,7 +2,7 @@ import CredsProfile from "../../schemas/creds-profile.js";
 
 export const getCredsProfile = async (req, res) => {
   try {
-    const { id } = req.body;
+    const { id, fullname, country, email } = req.body;
 
     if (id === undefined) {
       return res.json({ message: "ID is required" });
@@ -17,9 +17,9 @@ export const getCredsProfile = async (req, res) => {
           public_id: "",
           status: false,
         },
-        fullname: "",
-        country: "",
-        email: "",
+        fullname,
+        country,
+        email,
         createdBy: id,
       });
       const profileSaved = await data.save();
@@ -33,6 +33,7 @@ export const getCredsProfile = async (req, res) => {
           createdBy: profileSaved.createdBy,
           createdAt: profileSaved.createdAt.toLocaleDateString(),
         },
+        id: profileSaved._id,
         status: 204,
         message: "New information has been created, submitted successfully",
       });
@@ -46,6 +47,7 @@ export const getCredsProfile = async (req, res) => {
         createdBy: data.createdBy,
         createdAt: data.createdAt.toLocaleDateString(),
       },
+      id: data._id,
       status: 204,
       message: "Information found, and sent successfully",
     });
