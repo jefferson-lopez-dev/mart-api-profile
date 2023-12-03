@@ -17,7 +17,7 @@ export const getCredsProfile = async (req, res) => {
         picture: {
           url: imagen,
           public_id: "",
-          status: false,
+          status: true,
         },
         fullname,
         country,
