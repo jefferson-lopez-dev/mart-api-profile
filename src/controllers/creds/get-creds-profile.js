@@ -9,11 +9,13 @@ export const getCredsProfile = async (req, res) => {
     }
 
     const data = await CredsProfile.findOne({ createdBy: id });
+    const imagen =
+      "https://i.pinimg.com/564x/2a/2e/7f/2a2e7f0f60b750dfb36c15c268d0118d.jpg";
 
     if (data === null) {
       const data = new CredsProfile({
         picture: {
-          url: "",
+          url: imagen,
           public_id: "",
           status: false,
         },
