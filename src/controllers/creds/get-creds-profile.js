@@ -9,15 +9,13 @@ export const getCredsProfile = async (req, res) => {
     }
 
     const data = await CredsProfile.findOne({ createdBy: id });
-    const imagen =
-      "https://i.pinimg.com/564x/2a/2e/7f/2a2e7f0f60b750dfb36c15c268d0118d.jpg";
 
     if (data === null) {
       const data = new CredsProfile({
         picture: {
-          url: imagen,
+          url: "",
           public_id: "",
-          status: true,
+          status: false,
         },
         fullname,
         country,
@@ -34,6 +32,7 @@ export const getCredsProfile = async (req, res) => {
           email: profileSaved.email,
           createdBy: profileSaved.createdBy,
           createdAt: profileSaved.createdAt.toLocaleDateString(),
+          status: true,
         },
         id: profileSaved._id,
         status: 204,
@@ -48,6 +47,7 @@ export const getCredsProfile = async (req, res) => {
         email: data.email,
         createdBy: data.createdBy,
         createdAt: data.createdAt.toLocaleDateString(),
+        status: true,
       },
       id: data._id,
       status: 204,
