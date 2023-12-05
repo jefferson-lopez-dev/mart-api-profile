@@ -5,7 +5,6 @@ export const deletePicture = async (req, res) => {
   try {
     const { id } = req.params;
     const data = await CredsProfile.findById(id);
-    console.log(data);
 
     const not_picture_url =
       "https://res.cloudinary.com/jeffersoncloud/image/upload/v1701628837/photos/e9fqfyuthrjjo9ojcw6p.jpg";
