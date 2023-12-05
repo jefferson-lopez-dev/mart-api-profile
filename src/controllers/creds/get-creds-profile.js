@@ -10,12 +10,15 @@ export const getCredsProfile = async (req, res) => {
 
     const data = await CredsProfile.findOne({ createdBy: id });
 
+    const not_picture_url =
+      "https://res.cloudinary.com/jeffersoncloud/image/upload/v1701628837/photos/e9fqfyuthrjjo9ojcw6p.jpg";
+
     if (data === null) {
       const data = new CredsProfile({
         picture: {
-          url: "",
-          public_id: "",
-          status: false,
+          url: not_picture_url,
+          public_id: "jeffersoncloud",
+          status: true,
         },
         fullname,
         country,

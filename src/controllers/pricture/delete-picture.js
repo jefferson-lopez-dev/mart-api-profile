@@ -3,16 +3,20 @@ import { deleteImage } from "../../libs/index.js";
 
 export const deletePicture = async (req, res) => {
   try {
-    const { id } = req.body;
-    const data = await CredsProfile.findOne({ id });
+    const { id } = req.params;
+    const data = await CredsProfile.findById(id);
+    console.log(data);
+
+    const not_picture_url =
+      "https://res.cloudinary.com/jeffersoncloud/image/upload/v1701628837/photos/e9fqfyuthrjjo9ojcw6p.jpg";
 
     if (data.picture.status) {
       await deleteImage(data.picture.public_id);
-      await profile_user.findByIdAndUpdate(data._id, {
+      await CredsProfile.findByIdAndUpdate(data._id, {
         picture: {
-          url: "",
-          public_id: "",
-          status: false,
+          url: not_picture_url,
+          public_id: "jeffersoncloud",
+          status: true,
         },
       });
       return res.json({

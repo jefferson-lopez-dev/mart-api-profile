@@ -10,4 +10,4 @@ creds.get("/", (req, res) => res.json(welcome));
 creds.post("/creds_profile", c.getCredsProfile);
 creds.put("/creds_profile", c.putCredsProfile);
 creds.put("/creds_profile/picture/:id", c.updatePicture);
-creds.delete("/creds_profile/picture", c.deletePicture);
+creds.delete("/creds_profile/picture/:id", c.deletePicture);
