@@ -2,7 +2,7 @@ import CredsProfile from "../../schemas/creds-profile.js";
 
 export const getCredsProfile = async (req, res) => {
   try {
-    const { id, fullname, country, email } = req.body;
+    const { id, fullname, country, email, url_picture } = req.body;
 
     if (id === undefined) {
       return res.json({ message: "ID is required" });
@@ -16,7 +16,7 @@ export const getCredsProfile = async (req, res) => {
     if (data === null) {
       const data = new CredsProfile({
         picture: {
-          url: not_picture_url,
+          url: url_picture ? url_picture : not_picture_url,
           public_id: "jeffersoncloud",
           status: true,
         },
